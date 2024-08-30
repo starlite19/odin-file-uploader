@@ -1,0 +1,56 @@
+body {
+    text-align: center;
+    padding: 8px;
+    background-color: #F2EBE6;
+}
+
+h2 {
+    color: #373839;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #8DAAA0;
+    border-radius: 8px;
+    padding: 8px;
+    width: 250px;
+    gap: 4px;
+}
+
+button {
+    background-color: #F87218;
+    border: 1px solid #F87218;
+    padding: 8px 16px;
+    border-radius: 4px;
+    color: #F2EBE6;
+}
+
+.navigation {
+    border: 1px solid #BCD0CA;
+    padding: 8px 16px;
+    border-radius: 8px;
+    background-color: #BCD0CA;
+    color: #373839;
+}
+
+.actions {
+    display: flex;
+    gap: 16px;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+.text {
+    margin-bottom: 16px;
+}

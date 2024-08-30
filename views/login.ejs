@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<head>
+  <title>Login</title>
+  <link rel="stylesheet" href="/form.css">
+</head>
+
+<body>
+  <h2>Login</h2>
+  <%- include("errors.ejs") %>
+  <form action="/login" method="POST">
+
+    <div class="info-item">
+      <label for="username">Username:</label>
+      <input type="text" name="username" id="username" required>
+    </div>
+
+    <div class="info-item">
+      <label for="password">Password:</label>
+      <input type="password" name="password" id="password" required>
+    </div>
+
+    <div class="actions">
+      <button type="submit">Login</button>
+      <a href="/" class="navigation">Back to home</a>
+    </div>
+  </form>
+</body>
+
+</html>

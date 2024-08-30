@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title><%= file.name %></title>
+  <link rel="stylesheet" href="/file.css">
+</head>
+
+<body>
+  <div class="actions">
+    <a class="button" href="/logout">Logout</a>
+  </div>
+  <h2><%= file.name %></h2>
+  <div class="details">
+    <div class="detail">
+      <div class="heading">Size:</div>
+      <div class="info"><%= file.size %> bytes</div>
+    </div>
+
+    <div class="detail">
+      <div class="heading">Created At:</div>
+      <div class="info"><%= file.createdAt %></div>
+    </div>
+
+    <div class="detail">
+      <div class="heading">Updated At:</div>
+      <div class="info"><%= file.updatedAt %></div>
+    </div>
+  </div>
+  <!-- TODO: replace with download link functionality -->
+  <button>Download</button>
+</body>
+
+</html>

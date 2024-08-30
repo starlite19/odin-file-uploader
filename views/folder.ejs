@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title><%= folder.name %></title>
+  <link rel="stylesheet" href="/index.css">
+  <link rel="stylesheet" href="/item.css">
+</head>
+
+<body>
+  <div class="actions">
+    <a class="button" href="/logout">Logout</a>
+  </div>
+  <h2><%= folder.name %></h2>
+  <div class="list">
+    <% folder.subfolders.forEach( subfolder => { %>
+    <%- include('folder-item', { folder: subfolder }); %>
+    <% }); %>
+    <% folder.files.forEach
+  </div>
+
+</body>
+
+</html>

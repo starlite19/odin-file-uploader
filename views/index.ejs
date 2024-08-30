@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Welcome</title>
+  <link rel="stylesheet" href="/index.css">
+  <link rel="stylesheet" href="/item.css">
+</head>
+
+<body>
+  <% if (user) { %>
+  <!-- TODO: Replace with upload files and create folder stuff -->
+  <h1>Welcome back, <%= user.username %> </h1>
+  <div class="actions">
+    <a class="button" href="/logout">Logout</a>
+  </div>
+  <h2>Folders</h2>
+  <div class="list">
+    <% folders.forEach( folder => { %>
+    <%- include('folder-item', { folder: folder }); %>
+    <% }); %>
+  </div>
+  <% } else { %>
+  <h1>Welcome to FileStorage</h1>
+  <div class="actions">
+    <a class="button" href="/create/user">Sign up</a>
+    <a class="button" href="/login">Login</a>
+  </div>
+  <% } %>
+
+</body>
+
+</html>
