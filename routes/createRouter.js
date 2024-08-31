@@ -9,7 +9,8 @@ createRouter.post(
   createController.createUser
 );
 
-// createRouter.get("/folder", createController.getMessageForm);
+createRouter.get("/folder", createController.createFolder);
+createRouter.get("/:folderId/subfolder");
 // createRouter.post("/folder", createController.createMessage);
 
 module.exports = createRouter;

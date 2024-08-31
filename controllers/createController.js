@@ -41,21 +41,20 @@ async function createUser(req, res) {
   res.redirect("/");
 }
 
-// async function getMessageForm(req, res) {
-//   res.render("new-message-form");
-// }
-
-// async function createMessage(req, res) {
-//   const user = req.user;
-//   const { title, message } = req.body;
-//   await create_db.insertMessage(user.id, title, message);
-//   res.redirect("/");
-// }
+async function createFolder(req, res) {
+  const user = req.user;
+  const folder = await db.addFolder(user.id);
+  const updatedUser = await db.findUserById(user.id);
+  console.log("created folder:", folder);
+  console.log("updatedUser:", updatedUser);
+  res.redirect("/");
+}
 
 module.exports = {
   getUserForm,
   validateUser,
   createUser,
+  createFolder,
   //   getMessageForm,
   //   createMessage,
 };

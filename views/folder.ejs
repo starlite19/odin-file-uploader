@@ -12,12 +12,23 @@
     <a class="button" href="/logout">Logout</a>
   </div>
   <h2><%= folder.name %></h2>
+  <a class="button" href="/create/<%= folder.id %>/subfolder">Create subfolder</a>
   <div class="list">
+    <% if (folder.subfolders) { %>
     <% folder.subfolders.forEach( subfolder => { %>
     <%- include('folder-item', { folder: subfolder }); %>
     <% }); %>
-    <% folder.files.forEach
+    <% } %>
+    <% if (folder.files) { %>
+    <% folder.files.forEach( file => { %>
+    <%- include('file-item', { file: file }); %>
+    <% }); %>
+    <% } %>
+    <% if (!folder.subfolders && !folder.files) { %>
+    <div>Empty.</div>
+    <% } %>
   </div>
+
 
 </body>
 

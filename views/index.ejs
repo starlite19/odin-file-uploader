@@ -15,11 +15,16 @@
     <a class="button" href="/logout">Logout</a>
   </div>
   <h2>Folders</h2>
+  <a class="button" href="/create/folder">Create folder</a>
+  <% if (user && user.folders) { %>
   <div class="list">
-    <% folders.forEach( folder => { %>
+    <% user.folders.forEach( folder => { %>
     <%- include('folder-item', { folder: folder }); %>
     <% }); %>
   </div>
+  <% } else { %>
+  <div>Empty.</div>
+  <% } %>
   <% } else { %>
   <h1>Welcome to FileStorage</h1>
   <div class="actions">
