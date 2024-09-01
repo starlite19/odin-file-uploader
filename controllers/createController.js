@@ -44,10 +44,14 @@ async function createUser(req, res) {
 async function createFolder(req, res) {
   const user = req.user;
   const folder = await db.addFolder(user.id);
-  const updatedUser = await db.findUserById(user.id);
-  console.log("created folder:", folder);
-  console.log("updatedUser:", updatedUser);
   res.redirect("/");
+}
+
+async function createSubfolder(req, res) {
+  const parentId = req.params.folderId;
+  const user = req.user;
+  await db.addSubfolder(parentId, user.id);
+  res.redirect(`/folder/${parentId}`);
 }
 
 module.exports = {
@@ -55,6 +59,5 @@ module.exports = {
   validateUser,
   createUser,
   createFolder,
-  //   getMessageForm,
-  //   createMessage,
+  createSubfolder,
 };

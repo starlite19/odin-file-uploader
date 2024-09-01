@@ -10,7 +10,7 @@ createRouter.post(
 );
 
 createRouter.get("/folder", createController.createFolder);
-createRouter.get("/:folderId/subfolder");
+createRouter.get("/:folderId/subfolder", createController.createSubfolder);
 // createRouter.post("/folder", createController.createMessage);
 
 module.exports = createRouter;

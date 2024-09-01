@@ -16,10 +16,12 @@
   </div>
   <h2>Folders</h2>
   <a class="button" href="/create/folder">Create folder</a>
-  <% if (user && user.folders) { %>
+  <% if (user && user.folders?.length !== 0) { %>
   <div class="list">
     <% user.folders.forEach( folder => { %>
+    <% if (!folder.parentId) { %>
     <%- include('folder-item', { folder: folder }); %>
+    <% } %>
     <% }); %>
   </div>
   <% } else { %>

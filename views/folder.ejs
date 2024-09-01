@@ -12,19 +12,27 @@
     <a class="button" href="/logout">Logout</a>
   </div>
   <h2><%= folder.name %></h2>
-  <a class="button" href="/create/<%= folder.id %>/subfolder">Create subfolder</a>
+  <div class="actions">
+    <a class="button" href="/create/<%= folder.id %>/subfolder">Create subfolder</a>
+    <% if (!folder.parentId) { %>
+      <a class="button" href="/">Back to Folders</a>
+    <% } else { %>
+      <a class="button" href="/folder/<%= folder.parentId %>">Back to parent</a>
+    <% } %>
+  </div>
+  
   <div class="list">
-    <% if (folder.subfolders) { %>
+    <% if (folder.subfolders?.length !== 0) { %>
     <% folder.subfolders.forEach( subfolder => { %>
     <%- include('folder-item', { folder: subfolder }); %>
     <% }); %>
     <% } %>
-    <% if (folder.files) { %>
+    <% if (folder.files?.length !== 0) { %>
     <% folder.files.forEach( file => { %>
     <%- include('file-item', { file: file }); %>
     <% }); %>
     <% } %>
-    <% if (!folder.subfolders && !folder.files) { %>
+    <% if (folder.subfolders?.length == 0 && folder.files?.length == 0) { %>
     <div>Empty.</div>
     <% } %>
   </div>
