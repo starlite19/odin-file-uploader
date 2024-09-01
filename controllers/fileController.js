@@ -1,4 +1,6 @@
 const db = require("../db/queries");
+const multer = require("multer");
+const upload = multer({ dest: "../public" });
 
 async function viewFile(req, res) {
   const fileId = req.params.fileId;
@@ -33,9 +35,25 @@ async function deleteFile(req, res) {
   res.redirect(`/folder/${folderId}`);
 }
 
+async function getUploadForm(req, res) {
+  const folderId = req.params.folderId;
+  let backUrl = `/folder${folderId}`;
+  res.render("file-upload", { folderId: folderId, backUrl: backUrl });
+}
+
+async function uploadForm(req, res) {
+  const folderId = req.params.folderId;
+  const file = req.file;
+  await db.addFile(file.originalname, file.path, file.size, folderId);
+  res.redirect(`/folder/${folderId}`);
+}
+
 module.exports = {
   viewFile,
   getRenameFile,
   renameFile,
   deleteFile,
+  getUploadForm,
+  upload,
+  uploadForm,
 };

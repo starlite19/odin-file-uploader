@@ -138,6 +138,21 @@ async function addSubfolder(parentId, userId) {
   return newSubfolder;
 }
 
+async function addFile(name, path, size, folderId) {
+  const file = await prisma.file.create({
+    data: {
+      name: name,
+      path: path,
+      size: size,
+      folder: {
+        connect: { id: parseInt(folderId) },
+      },
+    },
+  });
+
+  return file;
+}
+
 module.exports = {
   findUserByName,
   findUserById,
@@ -150,4 +165,5 @@ module.exports = {
   changeFolderName,
   addFolder,
   addSubfolder,
+  addFile,
 };
