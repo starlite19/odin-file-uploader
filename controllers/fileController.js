@@ -1,6 +1,21 @@
 const db = require("../db/queries");
 const multer = require("multer");
-const upload = multer({ dest: "../public" });
+const path = require("path");
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "../public");
+  },
+  filename: (req, file, cb) => {
+    const ext = path.extname(file.originalname);
+    const basename = path.basename(file.originalname, ext);
+    const fileName = `${basename}-${Date.now()}${ext}`;
+    cb(null, fileName);
+  },
+});
+
+// const upload = multer({ dest: "../public" });
+const upload = multer({ storage: storage });
 
 async function viewFile(req, res) {
   const fileId = req.params.fileId;
@@ -37,7 +52,7 @@ async function deleteFile(req, res) {
 
 async function getUploadForm(req, res) {
   const folderId = req.params.folderId;
-  let backUrl = `/folder${folderId}`;
+  let backUrl = `/folder/${folderId}`;
   res.render("file-upload", { folderId: folderId, backUrl: backUrl });
 }
 

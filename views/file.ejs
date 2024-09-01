@@ -4,6 +4,7 @@
 <head>
   <title><%= file.name %></title>
   <link rel="stylesheet" href="/file.css">
+  <link rel="stylesheet" href="/index.css">
 </head>
 
 <body>
@@ -28,7 +29,11 @@
     </div>
   </div>
   <!-- TODO: replace with download link functionality -->
-  <button>Download</button>
+   <div class="actions">
+    <a href="/download/<%= file.id %>" class="button">Download</a>
+    <a href="/folder/<%= file.folderId %>" class="navigation">Back</a>
+   </div>
+  
 </body>
 
 </html>

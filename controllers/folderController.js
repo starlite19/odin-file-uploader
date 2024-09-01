@@ -9,7 +9,6 @@ async function viewFolder(req, res) {
 async function getRenameFolder(req, res) {
   const folderId = req.params.folderId;
   const folder = await db.findFolderById(folderId);
-  console.log("folder", folder);
   let backUrl = "/";
   if (folder.parentId) {
     backUrl = `/folder/${folder.parentId}`;
