@@ -1,5 +1,5 @@
 # ODIN File Uploader Application
-Project deployed on 
+Project deployed on https://odin-file-uploader-da8n.onrender.com
 
 - Note that it may take a while to load because the application is asleep
 
@@ -13,7 +13,7 @@ This project demonstrates the concepts of building a basic Express app using the
 
 Functionality:
 - Sign up/Login
-- CRUD folders
+- CRUD folders and files
 - Upload files within folders
 - View file details (name, size, upload time)
 - Download file
@@ -21,3 +21,5 @@ Functionality:
 
 Missing Features:
 - Viewing directory/file path (i.e. does not show nested directory route)
+- Can only upload file inside a folder
+- Cannot view file itself in browser
