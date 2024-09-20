@@ -3,9 +3,7 @@ const multer = require("multer");
 const path = require("path");
 
 const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "../public");
-  },
+  destination: "/tmp/uploads",
   filename: (req, file, cb) => {
     const ext = path.extname(file.originalname);
     const basename = path.basename(file.originalname, ext);
@@ -14,7 +12,6 @@ const storage = multer.diskStorage({
   },
 });
 
-// const upload = multer({ dest: "../public" });
 const upload = multer({ storage: storage });
 
 async function viewFile(req, res) {
